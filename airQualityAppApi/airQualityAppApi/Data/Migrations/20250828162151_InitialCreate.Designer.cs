@@ -7,10 +7,10 @@ using airQualityAppApi.Data;
 
 #nullable disable
 
-namespace airQualityAppApi.Data.Migrations
+namespace airQualityAppApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250827065344_InitialCreate")]
+    [Migration("20250828162151_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -28,13 +28,21 @@ namespace airQualityAppApi.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<byte[]>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("BLOB");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
+                        .HasColumnType("BLOB");
+
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("users");
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }
