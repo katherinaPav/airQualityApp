@@ -1,0 +1,29 @@
+<div class="hero bg-base-200 min-h-screen">
+    @if(!registerMode()) {
+    <div class="hero-content text-center">
+        <div class="flex flex-col items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                class="size-42 text-primary">
+                <path fill-rule="evenodd"
+                    d="M4.5 9.75a6 6 0 0 1 11.573-2.226 3.75 3.75 0 0 1 4.133 4.303A4.5 4.5 0 0 1 18 20.25H6.75a5.25 5.25 0 0 1-2.23-10.004 6.072 6.072 0 0 1-.02-.496Z"
+                    clip-rule="evenodd" />
+            </svg>
+
+
+            <h1 class="text-5xl font-bold">
+                Check the air quality of your area of interest
+            </h1>
+            <p class="py-6">Data since 2013</p>
+            <div class="flex items-center gap-3">
+                <button class="btn btn-primary btn-lg" (click)="showRegister(true)">Register</button>
+                <button class="btn btn-info btn-lg">Learn more</button>
+            </div>
+        </div>
+    </div>
+    } @else {
+    <div class="text-2xl text-center flex justify-center">
+        <app-register (cancelRegister)="showRegister($event)">
+        </app-register>
+    </div>
+    }
+</div>
